@@ -55,11 +55,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Two", "Service.Two"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service.Three", "Service.Three", "{FEBE4188-75EE-4E9E-8C92-B160CAD6062A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.One", "..\Services\Service.One\Service.One.csproj", "{F63EFF44-C725-4D69-9F3F-71B7895125AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.One", "..\Services\Service.One\Service.One.csproj", "{F63EFF44-C725-4D69-9F3F-71B7895125AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Two", "..\Services\Service.Two\Service.Two.csproj", "{74BCD86B-F92F-49C2-8A61-2B546AFFC8D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Two", "..\Services\Service.Two\Service.Two.csproj", "{74BCD86B-F92F-49C2-8A61-2B546AFFC8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Three", "..\Services\Service.Three\Service.Three.csproj", "{78241CD3-0EF5-4F94-83D5-2B01CA9B1858}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Three", "..\Services\Service.Three\Service.Three.csproj", "{78241CD3-0EF5-4F94-83D5-2B01CA9B1858}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

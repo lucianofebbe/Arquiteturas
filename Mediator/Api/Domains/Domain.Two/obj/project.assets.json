@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Domains\\Domain.Two\\Domain.Two.csproj",
+      "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.Two\\Domain.Two.csproj",
       "projectName": "Domain.Two",
-      "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Domains\\Domain.Two\\Domain.Two.csproj",
+      "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.Two\\Domain.Two.csproj",
       "packagesPath": "C:\\Users\\lucia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Domains\\Domain.Two\\obj\\",
+      "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.Two\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
