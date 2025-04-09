@@ -5,21 +5,21 @@ namespace Factory.ApiExternalFactory
 {
     public class ApiExternalFactory<T> : IApiExternalFactory<T> where T : BaseDomain
     {
-        public IApiExternal<T> CreateAsync()
+        public async Task<IApiExternal<T>> CreateAsync(int limit = 20, string name = "")
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri(GetBaseUrlFor(typeof(T)));
+            client.BaseAddress = new Uri(GetBaseUrlFor(typeof(T), limit, name));
             return new ApiExternal<T>(client);
         }
 
-        private string GetBaseUrlFor(Type type)
+        private string GetBaseUrlFor(Type type, int limit = 20, string name = "")
         {
             try
             {
                 if (type == typeof(Pokemon))
-                    return "https://pokeapi.co/api/v2/pokemon/";
+                    return $"https://pokeapi.co/api/v2/pokemon/{name}";
                 else if (type == typeof(Pokemons))
-                    return "https://pokeapi.co/api/v2/pokemon?limit=151";
+                    return $"https://pokeapi.co/api/v2/pokemon?limit={limit}";
                 else
                     throw new NotSupportedException($"No API URL configured for type {type.Name}");
             }

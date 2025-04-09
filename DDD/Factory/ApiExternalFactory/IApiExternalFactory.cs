@@ -5,6 +5,6 @@ namespace Factory.ApiExternalFactory
 {
     public interface IApiExternalFactory<T> where T : BaseDomain
     {
-        IApiExternal<T> CreateAsync();
+        Task<IApiExternal<T>> CreateAsync(int limit = 20, string name = "");
     }
 }
