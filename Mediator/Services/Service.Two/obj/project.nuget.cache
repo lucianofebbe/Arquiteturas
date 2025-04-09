@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DLbsKXFyzkc=",
+  "dgSpecHash": "EjHobwwTHsc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Services\\Service.Two\\Service.Two.csproj",
+  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Services\\Service.Two\\Service.Two.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

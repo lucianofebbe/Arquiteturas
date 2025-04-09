@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9ZQprYpNu2E=",
+  "dgSpecHash": "C89UjH3/KuY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.Three\\Domain.Three.csproj",
+  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.Three\\Domain.Three.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

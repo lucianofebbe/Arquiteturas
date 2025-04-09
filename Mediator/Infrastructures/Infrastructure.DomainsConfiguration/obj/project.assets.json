@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Infrastructure\\Infrastructure.DomainsConfiguration\\Infrastructure.DomainsConfiguration.csproj",
+      "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Infrastructures\\Infrastructure.DomainsConfiguration\\Infrastructure.DomainsConfiguration.csproj",
       "projectName": "Infrastructure.DomainsConfiguration",
-      "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Infrastructure\\Infrastructure.DomainsConfiguration\\Infrastructure.DomainsConfiguration.csproj",
+      "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Infrastructures\\Infrastructure.DomainsConfiguration\\Infrastructure.DomainsConfiguration.csproj",
       "packagesPath": "C:\\Users\\lucia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Infrastructure\\Infrastructure.DomainsConfiguration\\obj\\",
+      "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Infrastructures\\Infrastructure.DomainsConfiguration\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

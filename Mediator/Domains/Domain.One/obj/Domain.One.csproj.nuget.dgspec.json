@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.One\\Domain.One.csproj": {}
+    "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.One\\Domain.One.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.One\\Domain.One.csproj": {
+    "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.One\\Domain.One.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.One\\Domain.One.csproj",
+        "projectUniqueName": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.One\\Domain.One.csproj",
         "projectName": "Domain.One",
-        "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.One\\Domain.One.csproj",
+        "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.One\\Domain.One.csproj",
         "packagesPath": "C:\\Users\\lucia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Api\\Domains\\Domain.One\\obj\\",
+        "outputPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Domains\\Domain.One\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

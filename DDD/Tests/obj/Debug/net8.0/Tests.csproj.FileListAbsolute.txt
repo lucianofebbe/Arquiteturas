@@ -1,0 +1,12 @@
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\bin\Debug\net8.0\Tests.deps.json
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\bin\Debug\net8.0\Tests.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\bin\Debug\net8.0\Tests.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.AssemblyInfoInputs.cache
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.AssemblyInfo.cs
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.csproj.CoreCompileInputs.cache
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.sourcelink.json
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\refint\Tests.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\Tests.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Tests\obj\Debug\net8.0\ref\Tests.dll

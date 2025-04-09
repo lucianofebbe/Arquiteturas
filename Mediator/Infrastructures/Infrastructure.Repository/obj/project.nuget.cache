@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sZi/0Bxacd0=",
+  "dgSpecHash": "HAArpbKqGy4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquitetura\\Api\\Infrastructure\\Infrastructure.Repository\\Infrastructure.Repository.csproj",
+  "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\Mediator\\Infrastructures\\Infrastructure.Repository\\Infrastructure.Repository.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
