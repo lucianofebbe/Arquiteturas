@@ -3,7 +3,7 @@ using Infrastructure.Data.UnitOfWork;
 
 namespace Infrastructure.Data.Repositories.PokemonColorRepositorie
 {
-    public class PokemonColorRepositorie<T> : UnitOfWork<T>, IPokemonColorRepositorie<T> where T : BaseDomain
+    public class PokemonColorRepositorie : UnitOfWork<PokemonColor>, IPokemonColorRepositorie<PokemonColor>
     {
         public PokemonColorRepositorie(Context.Context context) : base(context)
         {

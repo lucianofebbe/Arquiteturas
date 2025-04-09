@@ -1,8 +1,6 @@
-﻿using Domain.Entities;
-
-namespace Infrastructure.Data.Repositories.PokemonColorRepositorie
+﻿namespace Infrastructure.Data.Repositories.PokemonColorRepositorie
 {
-    public interface IPokemonColorRepositorie<T> where T : BaseDomain
+    public interface IPokemonColorRepositorie<PokemonColor>
     {
     }
 }

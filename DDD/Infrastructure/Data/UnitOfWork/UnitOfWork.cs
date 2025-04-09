@@ -18,7 +18,7 @@ namespace Infrastructure.Data.UnitOfWork
         {
             try
             {
-                var resultFind = Get(a => a.Id == id, cancellationToken).Result;
+                var resultFind = await Get(a => a.Id == id, cancellationToken);
                 if (resultFind != null)
                 {
                     resultFind.Deleted = true;

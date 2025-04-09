@@ -3,14 +3,12 @@ using System.Text.Json;
 
 namespace Infrastructure.Apis.ApiExternal
 {
-    public class ApiExternal<T> where T : BaseDomain, IApiExternal<T>
+    public class ApiExternal<T> : IApiExternal<T> where T : BaseDomain
     {
-        private readonly string _baseAddress;
-        private readonly string _uriRequest;
-        public ApiExternal(string baseAddress, string uriRequest)
+        private readonly HttpClient _httpClient;
+        public ApiExternal(HttpClient httpClient)
         {
-            _baseAddress = baseAddress;
-            _uriRequest = uriRequest;
+            _httpClient = httpClient;
         }
 
         public virtual async Task<List<T>> GetAllTAsync()
@@ -18,7 +16,7 @@ namespace Infrastructure.Apis.ApiExternal
             try
             {
                 var result = new List<T>();
-                result.AddRange(JsonSerializer.Deserialize<List<T>>(GetAllStringAsync().Result));
+                result.AddRange(JsonSerializer.Deserialize<List<T>>(await GetAllStringAsync()));
                 return result;
 
             }
@@ -27,7 +25,7 @@ namespace Infrastructure.Apis.ApiExternal
 
         public virtual async Task<T> GetTAsync()
         {
-            return JsonSerializer.Deserialize<T>(GetStringAsync().Result);
+            return JsonSerializer.Deserialize<T>(await GetStringAsync());
         }
 
         public virtual async Task<string> GetAllStringAsync()
@@ -36,7 +34,7 @@ namespace Infrastructure.Apis.ApiExternal
             try
             {
                 var result = new List<T>();
-                var response = HttpClient().Result;
+                var response = await _httpClient.GetAsync(string.Empty);
                 response.EnsureSuccessStatusCode();
                 var json = await response.Content.ReadAsStringAsync();
                 return json;
@@ -47,26 +45,13 @@ namespace Infrastructure.Apis.ApiExternal
 
         public virtual async Task<string> GetStringAsync()
         {
-
             try
             {
                 var result = new List<T>();
-                var response = HttpClient().Result;
+                var response = await _httpClient.GetAsync(string.Empty);
                 response.EnsureSuccessStatusCode();
                 var json = await response.Content.ReadAsStringAsync();
                 return json;
-
-            }
-            catch (Exception ex) { throw; }
-        }
-
-        private async Task<HttpResponseMessage> HttpClient()
-        {
-            try
-            {
-                HttpClient httpClient = new HttpClient() { BaseAddress = new Uri(_baseAddress) };
-                var result = await httpClient.GetAsync(_uriRequest);
-                return result;
             }
             catch (Exception ex) { throw; }
         }

@@ -1,0 +1,12 @@
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\bin\Release\net8.0\Factory.deps.json
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\bin\Release\net8.0\Factory.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\bin\Release\net8.0\Factory.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.AssemblyInfoInputs.cache
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.AssemblyInfo.cs
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.csproj.CoreCompileInputs.cache
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.sourcelink.json
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\refint\Factory.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\Factory.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Release\net8.0\ref\Factory.dll
