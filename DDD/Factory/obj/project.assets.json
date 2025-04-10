@@ -1195,6 +1195,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Domain": "1.0.0",
+          "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4"
         },
@@ -1203,6 +1204,19 @@
         },
         "runtime": {
           "bin/placeholder/Infrastructure.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
         }
       }
     }
@@ -3243,12 +3257,18 @@
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Domain >= 1.0.0",
       "Infrastructure >= 1.0.0",
+      "Interfaces >= 1.0.0",
       "Microsoft.AspNet.WebApi.Client >= 6.0.0",
       "Microsoft.Extensions.Http >= 9.0.4"
     ]
@@ -3291,6 +3311,9 @@
             },
             "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Infrastructure\\Infrastructure.csproj"
+            },
+            "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Interfaces.csproj"
             }
           }
         }

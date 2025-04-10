@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Interfaces.Infrastructure.Apis.ApiExternal;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

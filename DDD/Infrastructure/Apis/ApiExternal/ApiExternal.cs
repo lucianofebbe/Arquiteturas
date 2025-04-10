@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Interfaces.Infrastructure.Apis.ApiExternal;
 using System.Text.Json;
 
 namespace Infrastructure.Apis.ApiExternal

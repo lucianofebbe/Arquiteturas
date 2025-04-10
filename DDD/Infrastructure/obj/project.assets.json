@@ -1611,6 +1611,19 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
+        }
       }
     }
   },
@@ -4727,11 +4740,17 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Domain >= 1.0.0",
+      "Interfaces >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.4"
@@ -4772,6 +4791,9 @@
           "projectReferences": {
             "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Interfaces.csproj"
             }
           }
         }

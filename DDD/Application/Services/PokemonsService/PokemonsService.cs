@@ -1,26 +1,34 @@
 ﻿using Domain.Entities;
-using Factory.ApiExternalFactory;
+using Interfaces.Application.Services.PokemonsService;
+using Interfaces.Factory.ApiExternalFactory;
+using Interfaces.Infrastructure.Apis.ApiExternal;
 
 namespace Application.Services.PokemonsService
 {
     public class PokemonsService : IPokemonsService
     {
-        private IApiExternalFactory<Pokemon> apiExternalFactoryPokemon;
-        private IApiExternalFactory<Pokemons> apiExternalFactoryPokemons;
+        private IApiExternalFactory<Pokemon> facPokemonApi;
+        private IApiExternalFactory<Pokemons> facPokemonsApi;
+        private IUnitOfWork<Pokemon> facPokemonRepo;
+        private IUnitOfWork<Pokemons> facPokemonsRepo;
 
         public PokemonsService(
-            IApiExternalFactory<Pokemon> apiExternalFactoryPokemon,
-            IApiExternalFactory<Pokemons> apiExternalFactoryPokemons)
+            IApiExternalFactory<Pokemon> facPokemonApi,
+            IApiExternalFactory<Pokemons> facPokemonsApi,
+            IUnitOfWork<Pokemon> facPokemonRepo,
+            IUnitOfWork<Pokemons> facPokemonsRepo)
         {
-            this.apiExternalFactoryPokemon = apiExternalFactoryPokemon;
-            this.apiExternalFactoryPokemons = apiExternalFactoryPokemons;
+            this.facPokemonApi = facPokemonApi;
+            this.facPokemonsApi = facPokemonsApi;
+            this.facPokemonRepo = facPokemonRepo;
+            this.facPokemonsRepo = facPokemonsRepo;
         }
 
         public async Task<Pokemon> GetPokemonAsync(string name)
         {
             try
             {
-                var apiCreate = await this.apiExternalFactoryPokemon.CreateAsync(name: name);
+                var apiCreate = await this.facPokemonApi.CreateAsync(name: name);
                 return await apiCreate.GetTAsync();
             }
             catch (Exception ex) { throw; }
@@ -30,7 +38,7 @@ namespace Application.Services.PokemonsService
         {
             try
             {
-                var apiCreate = await this.apiExternalFactoryPokemons.CreateAsync(limit: limit);
+                var apiCreate = await this.facPokemonsApi.CreateAsync(limit: limit);
                 return await apiCreate.GetAllTAsync();
             }
             catch (Exception ex) { throw; }

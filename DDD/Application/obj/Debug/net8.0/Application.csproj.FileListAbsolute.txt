@@ -14,3 +14,11 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\D
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Domain.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Factory.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Factory.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\DependencyInjection.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Interfaces.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\DependencyInjection.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Interfaces.pdb

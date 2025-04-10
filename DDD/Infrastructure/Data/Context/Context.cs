@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Infrastructure.Data.Context
 {
@@ -14,7 +15,10 @@ namespace Infrastructure.Data.Context
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                    @"Data Source=(LocalDB)\MSSQLLocalDB;Database=C:/Users/lucia/Documents/Empresa/Arquiteturas/DDD/Infrastructure/Data/Db/Database1.mdf;Integrated Security=True");
+                    @"Data Source=(LocalDB)\MSSQLLocalDB;
+                    AttachDbFilename=C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Infrastructure\Data\Db\DataBaseDDD.mdf;
+                    Integrated Security=True;
+                    Connect Timeout=30");
             }
         }
     }
