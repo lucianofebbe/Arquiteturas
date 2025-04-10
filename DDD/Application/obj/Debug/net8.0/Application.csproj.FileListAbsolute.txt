@@ -18,7 +18,5 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\F
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Infrastructure.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Factory.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Infrastructure.pdb
-C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\DependencyInjection.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Interfaces.dll
-C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\DependencyInjection.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Application\bin\Debug\net8.0\Interfaces.pdb

@@ -779,7 +779,6 @@
       },
       "Application/1.0.0": {
         "dependencies": {
-          "DependencyInjection": "1.0.0",
           "Domain": "1.0.0",
           "Factory": "1.0.0",
           "Interfaces": "1.0.0"
@@ -792,6 +791,11 @@
         }
       },
       "DependencyInjection/1.0.0": {
+        "dependencies": {
+          "Application": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4"
+        },
         "runtime": {
           "DependencyInjection.dll": {
             "assemblyVersion": "1.0.0.0",

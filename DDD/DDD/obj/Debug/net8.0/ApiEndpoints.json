@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "DDD.Controllers.PokemonsController",
+    "Method": "Details",
+    "RelativePath": "PokemonsApi/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

@@ -4,8 +4,8 @@ namespace Interfaces.Application.Services.PokemonsService
 {
     public interface IPokemonsService
     {
-        Task<List<Pokemons>> GetPokemonsAsync(int limit);
+        Task<List<Pokemons>> GetPokemonsAsync(int limit = 10);
 
-        Task<Pokemon> GetPokemonAsync(string name);
+        Task<Pokemon> GetPokemonAsync(string name = "");
     }
 }

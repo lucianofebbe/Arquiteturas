@@ -2,6 +2,7 @@
 using Infrastructure.Data.Context;
 using Infrastructure.Data.UnitOfWork;
 using Interfaces.Infrastructure.Apis.ApiExternal;
+using Microsoft.EntityFrameworkCore;
 
 namespace Factory.RepositorieFactory
 {
@@ -11,7 +12,9 @@ namespace Factory.RepositorieFactory
         {
             try
             {
-                var context = new Context();
+                var optionsBuilder = new DbContextOptionsBuilder<Context>();
+                var context = new Context(optionsBuilder.Options);
+
                 var unitOfWork = new UnitOfWork<T>(context);
                 return unitOfWork;
             }

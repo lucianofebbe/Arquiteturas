@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Factory.RepositorieFactory;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Infrastructure.Apis.ApiExternal;
@@ -9,14 +10,14 @@ namespace Application.Services.PokemonsService
     {
         private IApiExternalFactory<Pokemon> facPokemonApi;
         private IApiExternalFactory<Pokemons> facPokemonsApi;
-        private IUnitOfWork<Pokemon> facPokemonRepo;
-        private IUnitOfWork<Pokemons> facPokemonsRepo;
+        private IRepositorieFactory<Pokemon> facPokemonRepo;
+        private IRepositorieFactory<Pokemons> facPokemonsRepo;
 
         public PokemonsService(
             IApiExternalFactory<Pokemon> facPokemonApi,
             IApiExternalFactory<Pokemons> facPokemonsApi,
-            IUnitOfWork<Pokemon> facPokemonRepo,
-            IUnitOfWork<Pokemons> facPokemonsRepo)
+            IRepositorieFactory<Pokemon> facPokemonRepo,
+            IRepositorieFactory<Pokemons> facPokemonsRepo)
         {
             this.facPokemonApi = facPokemonApi;
             this.facPokemonsApi = facPokemonsApi;
@@ -24,7 +25,7 @@ namespace Application.Services.PokemonsService
             this.facPokemonsRepo = facPokemonsRepo;
         }
 
-        public async Task<Pokemon> GetPokemonAsync(string name)
+        public async Task<Pokemon> GetPokemonAsync(string name = "")
         {
             try
             {
@@ -34,7 +35,7 @@ namespace Application.Services.PokemonsService
             catch (Exception ex) { throw; }
         }
 
-        public async Task<List<Pokemons>> GetPokemonsAsync(int limit)
+        public async Task<List<Pokemons>> GetPokemonsAsync(int limit = 20)
         {
             try
             {
