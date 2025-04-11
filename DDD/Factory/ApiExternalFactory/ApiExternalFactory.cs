@@ -1,12 +1,12 @@
-﻿using Domain.Bases;
-using Domain.Entities;
+﻿using Domain.Entities;
+using DTOs.Dtos;
 using Infrastructure.Apis.ApiExternal;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Infrastructure.Apis.ApiExternal;
 
 namespace Factory.ApiExternalFactory
 {
-    public class ApiExternalFactory<T> : IApiExternalFactory<T> where T : BaseDomain
+    public class ApiExternalFactory<T> : IApiExternalFactory<T> where T : class
     {
         public async Task<IApiExternal<T>> CreateAsync(string url)
         {
@@ -36,7 +36,7 @@ namespace Factory.ApiExternalFactory
             {
                 if (type == typeof(Pokemon))
                     return $"https://pokeapi.co/api/v2/pokemon/{name}";
-                else if (type == typeof(Pokemons))
+                else if (type == typeof(PokemonListDto))
                     return $"https://pokeapi.co/api/v2/pokemon?offset={offset}limit={limit}";
                 else
                     throw new NotSupportedException($"No API URL configured for type {type.Name}");

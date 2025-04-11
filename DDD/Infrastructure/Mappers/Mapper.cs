@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Domain.Bases;
 using DTOs.Bases;
-using Interfaces.Application.Mappers;
+using Interfaces.Factory.MappersFactory;
 using Newtonsoft.Json;
 
-namespace Infrastructure.Mappers
+namespace Interfaces.Infrastructure.Mapper
 {
     public class Mapper<Domain, Request, Response> : IMapper<Domain, Request, Response>
         where Domain : BaseDomain

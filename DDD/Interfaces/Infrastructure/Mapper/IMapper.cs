@@ -1,7 +1,7 @@
 ﻿using Domain.Bases;
 using DTOs.Bases;
 
-namespace Interfaces.Application.Mappers
+namespace Interfaces.Infrastructure.Mapper
 {
     public interface IMapper<Domain, Request, Response>
      where Domain : BaseDomain
@@ -38,5 +38,6 @@ namespace Interfaces.Application.Mappers
         Task<Response> JsonToResponse(string item);
         Task<List<Response>> JsonToResponseList(string item);
         #endregion
+    {
     }
 }
