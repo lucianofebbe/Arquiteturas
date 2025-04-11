@@ -776,6 +776,7 @@
       },
       "Interfaces/1.0.0": {
         "dependencies": {
+          "AutoMapper": "14.0.0",
           "DTOs": "1.0.0",
           "Domain": "1.0.0"
         },

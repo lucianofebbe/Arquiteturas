@@ -4,7 +4,7 @@ using DTOs.Bases;
 using DTOs.Dtos;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Factory.ApiExternalFactory;
-using Interfaces.Factory.Mappers;
+using Interfaces.Factory.MappersFactory;
 
 namespace Application.Services.PokemonsService
 {
@@ -12,12 +12,12 @@ namespace Application.Services.PokemonsService
     {
         private IApiExternalFactory<Pokemon> facPokemonApi;
         private IApiExternalFactory<PokemonListDto> facPokemonsApi;
-        private IMappersFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon;
+        private IMapperFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon;
 
         public PokemonsService(
             IApiExternalFactory<Pokemon> facPokemonApi,
             IApiExternalFactory<PokemonListDto> facPokemonsApi,
-            IMappersFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon)
+            IMapperFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon)
         {
             this.facPokemonApi = facPokemonApi;
             this.facPokemonsApi = facPokemonsApi;
@@ -40,8 +40,10 @@ namespace Application.Services.PokemonsService
         {
             try
             {
+                var result = new List<PokemonListDto>();
                 var apiCreate = await this.facPokemonsApi.CreatePokemonsAsync(offset: offset, limit: limit);
-                return await apiCreate.GetJsonAsync();
+                var json = await apiCreate.GetJsonAsync();
+                return result;
             }
             catch (Exception ex) { throw; }
         }

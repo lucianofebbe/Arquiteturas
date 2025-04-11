@@ -13,6 +13,10 @@ namespace Interfaces.Infrastructure.Mapper
     {
         private readonly IMapper mapper;
 
+        public Mapper()
+        {
+        }
+
         public Mapper(MapperConfiguration configuration)
         {
             mapper = configuration.CreateMapper();

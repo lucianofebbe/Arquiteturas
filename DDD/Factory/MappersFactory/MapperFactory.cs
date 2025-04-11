@@ -1,4 +1,5 @@
-﻿using Domain.Bases;
+﻿using AutoMapper;
+using Domain.Bases;
 using DTOs.Bases;
 using Interfaces.Factory.MappersFactory;
 using Interfaces.Infrastructure.Mapper;
@@ -10,9 +11,25 @@ namespace Factory.MappersFactory
         where Request : BaseRequest
         where Response : BaseResponse
     {
-        public Task<IMapper<Domain, Request, Response>> CreateAsync()
+        public async Task<IMapper<Domain, Request, Response>> CreateAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var mapper = new Mapper<Domain, Request, Response>();
+                return mapper;
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        public async Task<IMapper<Domain, Request, Response>> CreateAsync(MapperConfiguration configuration)
+        {
+            try
+            {
+                var mapper = new Mapper<Domain, Request, Response>(configuration);
+                return mapper;
+            }
+            catch (Exception ex) { throw; }
+
         }
     }
 }

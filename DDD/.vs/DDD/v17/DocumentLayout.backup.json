@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B37DB253-46A7-4A5C-8E1C-BF8CE87151A2}|Factory\\Factory.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\factory\\apiexternalfactory\\apiexternalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B37DB253-46A7-4A5C-8E1C-BF8CE87151A2}|Factory\\Factory.csproj|solutionrelative:factory\\apiexternalfactory\\apiexternalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\application\\services\\pokemonsservice\\pokemonsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|solutionrelative:application\\services\\pokemonsservice\\pokemonsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43A13FAE-72AC-46A2-A4CC-A222EAAD1274}|Interfaces\\Interfaces.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\interfaces\\infrastructure\\mapper\\imapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43A13FAE-72AC-46A2-A4CC-A222EAAD1274}|Interfaces\\Interfaces.csproj|solutionrelative:interfaces\\infrastructure\\mapper\\imapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 271,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApiExternalFactory.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Factory\\ApiExternalFactory\\ApiExternalFactory.cs",
-              "RelativeDocumentMoniker": "Factory\\ApiExternalFactory\\ApiExternalFactory.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Factory\\ApiExternalFactory\\ApiExternalFactory.cs",
-              "RelativeToolTip": "Factory\\ApiExternalFactory\\ApiExternalFactory.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAApwCMAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T04:23:53.885Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -55,15 +42,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PokemonsService.cs",
               "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsService.cs",
               "RelativeDocumentMoniker": "Application\\Services\\PokemonsService\\PokemonsService.cs",
               "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsService.cs",
               "RelativeToolTip": "Application\\Services\\PokemonsService\\PokemonsService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwCAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwCwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T04:08:42.744Z",
+              "WhenOpened": "2025-04-11T05:17:56.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IMapper.cs",
+              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Infrastructure\\Mapper\\IMapper.cs",
+              "RelativeDocumentMoniker": "Interfaces\\Infrastructure\\Mapper\\IMapper.cs",
+              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Interfaces\\Infrastructure\\Mapper\\IMapper.cs",
+              "RelativeToolTip": "Interfaces\\Infrastructure\\Mapper\\IMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T05:17:27.321Z",
               "EditorCaption": ""
             }
           ]

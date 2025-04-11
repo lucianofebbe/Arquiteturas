@@ -38,6 +38,6 @@ namespace Interfaces.Infrastructure.Mapper
         Task<Response> JsonToResponse(string item);
         Task<List<Response>> JsonToResponseList(string item);
         #endregion
-    {
+    
     }
 }

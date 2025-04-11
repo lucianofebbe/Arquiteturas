@@ -1,4 +1,5 @@
-﻿using Domain.Bases;
+﻿using AutoMapper;
+using Domain.Bases;
 using DTOs.Bases;
 using Interfaces.Infrastructure.Mapper;
 
@@ -10,5 +11,6 @@ namespace Interfaces.Factory.MappersFactory
         where Response : BaseResponse
     {
         Task<IMapper<Domain, Request, Response>> CreateAsync();
+        Task<IMapper<Domain, Request, Response>> CreateAsync(MapperConfiguration configuration);
     }
 }
