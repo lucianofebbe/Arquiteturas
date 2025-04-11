@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5NtYP4l8mwM=",
+  "dgSpecHash": "1eSPaTP8Qq4=",
   "success": true,
   "projectFilePath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Factory\\Factory.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lucia\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\lucia\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",

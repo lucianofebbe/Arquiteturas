@@ -5,10 +5,51 @@
     "version": "1.0"
   },
   "paths": {
-    "/PokemonsApi/details": {
+    "/PokemonsApi/listPokemons": {
       "get": {
         "tags": [
           "Pokemons"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PokemonsApi/getPokemon": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {

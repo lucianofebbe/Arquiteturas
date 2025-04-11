@@ -2,11 +2,10 @@
 
 namespace Interfaces.Infrastructure.Apis.ApiExternal
 {
-    public interface IApiExternal<T> where T : BaseDomain
+    public interface IApiExternal<T> where T : class
     {
-        Task<List<T>> GetAllTAsync();
-        Task<T> GetTAsync();
-        Task<string> GetAllStringAsync();
-        Task<string> GetStringAsync();
+        Task<List<T>> GetListAsync();
+        Task<T> GetAsync();
+        Task<string> GetJsonAsync();
     }
 }

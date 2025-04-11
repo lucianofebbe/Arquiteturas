@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTOs.dll": {}
+        }
       }
     }
   },
@@ -19,10 +29,16 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "DTOs/1.0.0": {
+      "type": "project",
+      "path": "../DTOs/DTOs.csproj",
+      "msbuildProject": "../DTOs/DTOs.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DTOs >= 1.0.0",
       "Domain >= 1.0.0"
     ]
   },
@@ -61,6 +77,9 @@
           "projectReferences": {
             "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\DTOs.csproj": {
+              "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\DTOs.csproj"
             }
           }
         }

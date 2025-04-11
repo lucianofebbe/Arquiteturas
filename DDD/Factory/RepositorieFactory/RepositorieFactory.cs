@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Bases;
 using Infrastructure.Data.Context;
 using Infrastructure.Data.UnitOfWork;
 using Interfaces.Infrastructure.Apis.ApiExternal;

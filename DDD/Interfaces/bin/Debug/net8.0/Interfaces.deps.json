@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "Interfaces/1.0.0": {
         "dependencies": {
+          "DTOs": "1.0.0",
           "Domain": "1.0.0"
         },
         "runtime": {
@@ -17,6 +18,14 @@
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DTOs/1.0.0": {
+        "runtime": {
+          "DTOs.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -31,6 +40,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTOs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

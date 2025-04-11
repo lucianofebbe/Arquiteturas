@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Bases;
 using Interfaces.Infrastructure.Apis.ApiExternal;
 
 namespace Factory.RepositorieFactory

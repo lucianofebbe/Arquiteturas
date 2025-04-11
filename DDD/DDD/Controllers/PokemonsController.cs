@@ -21,13 +21,30 @@ namespace DDD.Controllers
             return View();
         }
 
-        [HttpGet("details")]
-        public async Task<ActionResult> Details()
+        [HttpGet("listPokemons")]
+        public async Task<ActionResult> ListPokemons(int offset = 10, int limit = 20)
         {
             try
             {
-                var result = await this.pokemonsService.GetPokemonsAsync();
+                var result = await this.pokemonsService.GetPokemonsAsync(offset, limit);
                 if (result == null || !result.Any())
+                    return NotFound("Nenhum pokemon encontrado");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
+        [HttpGet("getPokemon")]
+        public async Task<ActionResult> GetPokemon(string name)
+        {
+            try
+            {
+                var result = await this.pokemonsService.GetPokemonAsync(name);
+                if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
                 return Ok(result);

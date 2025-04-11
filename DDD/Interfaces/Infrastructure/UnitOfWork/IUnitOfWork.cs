@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Bases;
 using System.Linq.Expressions;
 
 namespace Interfaces.Infrastructure.Apis.ApiExternal
