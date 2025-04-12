@@ -1,12 +1,12 @@
 ﻿using Domain.Entities;
-using DTOs.Dtos;
+using DTOs.Dtos.Pokemon;
 
 namespace Interfaces.Application.Services.PokemonsService
 {
     public interface IPokemonsService
     {
-        Task<List<PokemonListDto>> GetPokemonsAsync(int offset, int limit);
+        Task<ListPokemonsResponseDto> GetPokemonsAsync(int offset, int limit);
 
-        Task<Pokemon> GetPokemonAsync(string name = "");
+        Task<PokemonResponseDto> GetPokemonAsync(string name = "");
     }
 }

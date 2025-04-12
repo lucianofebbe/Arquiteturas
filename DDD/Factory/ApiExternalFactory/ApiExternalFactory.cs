@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using DTOs.Dtos;
+using DTOs.Dtos.Pokemon;
 using Infrastructure.Apis.ApiExternal;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Infrastructure.Apis.ApiExternal;
@@ -34,9 +34,9 @@ namespace Factory.ApiExternalFactory
         {
             try
             {
-                if (type == typeof(Pokemon))
+                if (type == typeof(PokemonResponseDto))
                     return $"https://pokeapi.co/api/v2/pokemon/{name}";
-                else if (type == typeof(PokemonListDto))
+                else if (type == typeof(ListPokemonsResponseDto))
                     return $"https://pokeapi.co/api/v2/pokemon?offset={offset}limit={limit}";
                 else
                     throw new NotSupportedException($"No API URL configured for type {type.Name}");

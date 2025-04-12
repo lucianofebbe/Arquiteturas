@@ -1,7 +1,6 @@
 ﻿using Domain.Bases;
-using Domain.Entities;
 using DTOs.Bases;
-using DTOs.Dtos;
+using DTOs.Dtos.Pokemon;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Factory.MappersFactory;
@@ -10,42 +9,73 @@ namespace Application.Services.PokemonsService
 {
     public class PokemonsService : IPokemonsService
     {
-        private IApiExternalFactory<Pokemon> facPokemonApi;
-        private IApiExternalFactory<PokemonListDto> facPokemonsApi;
-        private IMapperFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon;
+        private IApiExternalFactory<PokemonResponseDto> facPokemonApi;
+        private IMapperFactory<BaseDomain, BaseRequest, PokemonResponseDto> facPokemonMapper;
+
+        private IApiExternalFactory<ListPokemonsResponseDto> facListPokemonsApi;
+        private IMapperFactory<BaseDomain, BaseRequest, ListPokemonsResponseDto> facListPokemonsMapper;
 
         public PokemonsService(
-            IApiExternalFactory<Pokemon> facPokemonApi,
-            IApiExternalFactory<PokemonListDto> facPokemonsApi,
-            IMapperFactory<BaseDomain, BaseRequest, PokemonListDto> facMapperPokemon)
+            IApiExternalFactory<PokemonResponseDto> facPokemonApi,
+            IMapperFactory<BaseDomain, BaseRequest, PokemonResponseDto> facPokemonMapper,
+            IApiExternalFactory<ListPokemonsResponseDto> facListPokemonsApi,
+            IMapperFactory<BaseDomain, BaseRequest, ListPokemonsResponseDto> facListPokemonsMapper)
         {
             this.facPokemonApi = facPokemonApi;
-            this.facPokemonsApi = facPokemonsApi;
-            this.facMapperPokemon = facMapperPokemon;
+            this.facPokemonMapper = facPokemonMapper;
+            this.facListPokemonsApi = facListPokemonsApi;
+            this.facListPokemonsMapper = facListPokemonsMapper;
         }
 
-        public async Task<Pokemon> GetPokemonAsync(string name = "")
+        public async Task<PokemonResponseDto> GetPokemonAsync(string name = "")
         {
+            var result = new PokemonResponseDto();
             try
             {
-                var result = new Pokemon();
-                var apiCreate = await this.facPokemonApi.CreatePokemonsAsync(name: name);
-                var json = await apiCreate.GetJsonAsync();
+                var facPokemons = await this.facPokemonApi.CreatePokemonsAsync(name: name);
+                var getJsonAsync = await facPokemons.GetJsonAsync();
+
+                if (!string.IsNullOrEmpty(getJsonAsync))
+                {
+                    var facMapper = await facPokemonMapper.CreateAsync();
+                    var mapper = await facMapper.JsonToResponse(getJsonAsync);
+                    result = mapper;
+                }
+                else
+                    result.Message = "Pokemon not found";
+
                 return result;
             }
-            catch (Exception ex) { throw; }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
 
-        public async Task<List<PokemonListDto>> GetPokemonsAsync(int offset, int limit)
+        public async Task<ListPokemonsResponseDto> GetPokemonsAsync(int offset, int limit)
         {
+            var result = new ListPokemonsResponseDto();
             try
             {
-                var result = new List<PokemonListDto>();
-                var apiCreate = await this.facPokemonsApi.CreatePokemonsAsync(offset: offset, limit: limit);
-                var json = await apiCreate.GetJsonAsync();
+                var facPokemons = await facListPokemonsApi.CreatePokemonsAsync(offset: offset, limit: limit);
+                var getJsonAsync = await facPokemons.GetJsonAsync();
+
+                if (!string.IsNullOrEmpty(getJsonAsync))
+                {
+                    var facMapper = await facListPokemonsMapper.CreateAsync();
+                    var mapper = await facMapper.JsonToResponse(getJsonAsync);
+                    result = mapper;
+                }
+                else 
+                    result.Message = "Pokemon not found";
+                
                 return result;
             }
-            catch (Exception ex) { throw; }
+            catch (Exception ex) {
+                result.Message = ex.Message;
+                return result;
+            }
         }
     }
 }

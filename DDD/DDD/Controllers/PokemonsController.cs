@@ -27,7 +27,7 @@ namespace DDD.Controllers
             try
             {
                 var result = await this.pokemonsService.GetPokemonsAsync(offset, limit);
-                if (result == null || !result.Any())
+                if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
                 return Ok(result);
