@@ -9,6 +9,7 @@
       "DependencyInjection/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Facade": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.4",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.4"
         },
@@ -770,6 +771,18 @@
           }
         }
       },
+      "Facade/1.0.0": {
+        "dependencies": {
+          "DTOs": "1.0.0",
+          "Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Facade.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Factory/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
@@ -1295,6 +1308,11 @@
       "sha512": ""
     },
     "DTOs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Facade/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

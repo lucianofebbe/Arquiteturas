@@ -1,27 +1,34 @@
-﻿using DTOs.Dtos.Pokemon;
+﻿using DTOs.Dtos.Pokemon.Requests;
 using DTOs.Dtos.Pokemon.Responses;
+using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Facade.PokemonFacade;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Facade.PokemonFacade
 {
     public class PokemonFacade : IPokemonFacade
     {
-        public Task<ListPokemonsResponseDto> AtualizarBaseDadosPokemonAsync()
+        private IPokemonsApiService pokemonsApiService;
+        private IPokemonsRepoService pokemonsRepoService;
+        public PokemonFacade(
+            IPokemonsApiService pokemonsApiService,
+            IPokemonsRepoService pokemonsRepoService)
+        {
+            this.pokemonsApiService = pokemonsApiService;
+            this.pokemonsRepoService = pokemonsRepoService;
+        }
+
+
+        public Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<PokemonResponseDto> BuscarPokemonAsync(string name)
+        public Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ListPokemonsResponseDto> ListarPokemonsAsync(int offset, int limit)
+        public Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request)
         {
             throw new NotImplementedException();
         }

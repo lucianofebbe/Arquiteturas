@@ -24,3 +24,5 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\obj\Debug\
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\obj\Debug\net8.0\ref\DependencyInjection.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\bin\Debug\net8.0\DTOs.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\bin\Debug\net8.0\DTOs.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\bin\Debug\net8.0\Facade.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DependencyInjection\bin\Debug\net8.0\Facade.pdb

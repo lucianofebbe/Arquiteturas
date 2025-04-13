@@ -1232,6 +1232,20 @@
           "bin/placeholder/DTOs.dll": {}
         }
       },
+      "Facade/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DTOs": "1.0.0",
+          "Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Facade.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Facade.dll": {}
+        }
+      },
       "Factory/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3341,6 +3355,11 @@
       "path": "../DTOs/DTOs.csproj",
       "msbuildProject": "../DTOs/DTOs.csproj"
     },
+    "Facade/1.0.0": {
+      "type": "project",
+      "path": "../Facade/Facade.csproj",
+      "msbuildProject": "../Facade/Facade.csproj"
+    },
     "Factory/1.0.0": {
       "type": "project",
       "path": "../Factory/Factory.csproj",
@@ -3360,6 +3379,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Application >= 1.0.0",
+      "Facade >= 1.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 9.0.4",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 9.0.4"
     ]
@@ -3399,6 +3419,9 @@
           "projectReferences": {
             "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Application.csproj"
+            },
+            "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Facade\\Facade.csproj": {
+              "projectPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Facade\\Facade.csproj"
             }
           }
         }

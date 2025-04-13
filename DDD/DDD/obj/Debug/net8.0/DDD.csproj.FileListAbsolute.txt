@@ -113,3 +113,5 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\obj\Debug\net8.0\ref\DDD.d
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\bin\Debug\net8.0\DTOs.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\bin\Debug\net8.0\DTOs.pdb
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\bin\Debug\net8.0\Facade.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DDD\bin\Debug\net8.0\Facade.pdb

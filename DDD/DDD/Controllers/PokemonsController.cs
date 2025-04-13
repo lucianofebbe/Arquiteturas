@@ -1,5 +1,5 @@
 ﻿using DTOs.Dtos.Pokemon.Requests;
-using Interfaces.Application.Services.PokemonsService;
+using Interfaces.Facade.PokemonFacade;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDD.Controllers
@@ -8,11 +8,11 @@ namespace DDD.Controllers
     [Route("PokemonsApi")]
     public class PokemonsController : Controller
     {
-        private IPokemonsApiService pokemonsService;
+        private IPokemonFacade pokemonFacade;
 
-        public PokemonsController(IPokemonsApiService pokemonsService)
+        public PokemonsController(IPokemonFacade pokemonFacade)
         {
-            this.pokemonsService = pokemonsService;
+            this.pokemonFacade = pokemonFacade;
         }
 
         [HttpGet]
@@ -22,12 +22,29 @@ namespace DDD.Controllers
             return View();
         }
 
+        [HttpGet("updateDataBase")]
+        public async Task<ActionResult> UpdateDataBase()
+        {
+            try
+            {
+                var result = await this.pokemonFacade.UpdateDataBasePokemonAsync();
+                if (result == null)
+                    return NotFound("Nenhum pokemon encontrado");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
         [HttpGet("listPokemons")]
         public async Task<ActionResult> ListPokemons(ListPokemonsRequestDto request)
         {
             try
             {
-                var result = await this.pokemonsService.GetPokemonsAsync(request);
+                var result = await this.pokemonFacade.GetAllPokemonsAsync(request);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
@@ -44,7 +61,7 @@ namespace DDD.Controllers
         {
             try
             {
-                var result = await this.pokemonsService.GetPokemonAsync(request);
+                var result = await this.pokemonFacade.GetPokemonAsync(request);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
