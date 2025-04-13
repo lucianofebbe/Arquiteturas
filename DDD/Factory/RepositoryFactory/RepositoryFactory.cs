@@ -1,4 +1,5 @@
 ﻿using Domain.Bases;
+using Factory.RepositoryFactory;
 using Infrastructure.Data.Context;
 using Infrastructure.Data.UnitOfWork;
 using Interfaces.Infrastructure.Apis.ApiExternal;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Factory.RepositorieFactory
 {
-    public class RepositorieFactory<T> : IRepositorieFactory<T> where T : BaseDomain
+    public class RepositoryFactory<T> : IRepositoryFactory<T> where T : BaseDomain
     {
         public async Task<IUnitOfWork<T>> CreateAsync()
         {

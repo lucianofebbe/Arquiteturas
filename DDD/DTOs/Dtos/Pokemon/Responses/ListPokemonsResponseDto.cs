@@ -1,6 +1,6 @@
 ﻿using DTOs.Bases;
 
-namespace DTOs.Dtos.Pokemon
+namespace DTOs.Dtos.Pokemon.Responses
 {
     public record ListPokemonsResponseDto : BaseResponse
     {
@@ -10,7 +10,7 @@ namespace DTOs.Dtos.Pokemon
         public List<ItemPokemonsResultDto> Results { get; set; } = new();
     }
 
-    public record ItemPokemonsResultDto : BaseResponse
+    public record ItemPokemonsResultDto
     {
         public string Name { get; set; } = string.Empty;
         public string Url { get; set; } = string.Empty;

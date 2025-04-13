@@ -1,14 +1,6 @@
 ﻿using DTOs.Bases;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DTOs.Dtos.Pokemon
+namespace DTOs.Dtos.Pokemon.Responses
 {
     public record PokemonResponseDto : BaseResponse
     {
@@ -34,15 +26,16 @@ namespace DTOs.Dtos.Pokemon
         public float weight { get; set; }
     }
 
+    #region DtosPokemonsResponse
     #region abilities
-    public record abilities : BaseResponse
+    public record abilities
     {
         public bool is_hidden { get; set; }
         public int slot { get; set; }
         public ability ability { get; set; }
     }
 
-    public record ability : BaseResponse
+    public record ability
     {
         public string name { get; set; }
         public string url { get; set; }
@@ -485,5 +478,6 @@ namespace DTOs.Dtos.Pokemon
         public string name { get; set; }
         public string url { get; set; }
     }
+    #endregion
     #endregion
 }

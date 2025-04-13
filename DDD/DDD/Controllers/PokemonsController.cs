@@ -1,4 +1,5 @@
-﻿using Interfaces.Application.Services.PokemonsService;
+﻿using DTOs.Dtos.Pokemon.Requests;
+using Interfaces.Application.Services.PokemonsService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDD.Controllers
@@ -7,9 +8,9 @@ namespace DDD.Controllers
     [Route("PokemonsApi")]
     public class PokemonsController : Controller
     {
-        private IPokemonsService pokemonsService;
+        private IPokemonsApiService pokemonsService;
 
-        public PokemonsController(IPokemonsService pokemonsService)
+        public PokemonsController(IPokemonsApiService pokemonsService)
         {
             this.pokemonsService = pokemonsService;
         }
@@ -22,11 +23,11 @@ namespace DDD.Controllers
         }
 
         [HttpGet("listPokemons")]
-        public async Task<ActionResult> ListPokemons(int offset = 10, int limit = 20)
+        public async Task<ActionResult> ListPokemons(ListPokemonsRequestDto request)
         {
             try
             {
-                var result = await this.pokemonsService.GetPokemonsAsync(offset, limit);
+                var result = await this.pokemonsService.GetPokemonsAsync(request);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
@@ -39,11 +40,11 @@ namespace DDD.Controllers
         }
 
         [HttpGet("getPokemon")]
-        public async Task<ActionResult> GetPokemon(string name)
+        public async Task<ActionResult> GetPokemon(PokemonRequestDto request)
         {
             try
             {
-                var result = await this.pokemonsService.GetPokemonAsync(name);
+                var result = await this.pokemonsService.GetPokemonAsync(request);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 

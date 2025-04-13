@@ -34,19 +34,20 @@ namespace Infrastructure.Data.UnitOfWork
             }
         }
 
-        public virtual async Task<T> Get(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken, bool? deleteds = null)
+        public virtual async Task<T> Get(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken, bool noTracking = false, bool? deleteds = null)
         {
             try
             {
-                if (deleteds == null)
-                    return await context.Set<T>()
-                        .Where(predicate).FirstOrDefaultAsync();
-                else
-                {
-                    return await context.Set<T>()
-                        .Where(del => del.Deleted == deleteds)
-                        .Where(predicate).FirstOrDefaultAsync();
-                }
+                var query = context.Set<T>().AsQueryable();
+                query = query.Where(predicate);
+
+                if (deleteds != null)
+                    query = query.Where(del => del.Deleted == deleteds);
+
+                if (noTracking)
+                    query = query.AsNoTracking();
+
+                return await query.FirstOrDefaultAsync(cancellationToken);
             }
             catch (Exception ex)
             {
@@ -54,34 +55,49 @@ namespace Infrastructure.Data.UnitOfWork
             }
         }
 
-        public virtual async Task<List<T>> GetAll(CancellationToken cancellationToken, bool? deleteds = null)
+        public virtual async Task<List<T>> GetAll(CancellationToken cancellationToken, bool noTracking = false, int skip = 0, int take = 0, bool? deleteds = null)
         {
             try
             {
-                if (deleteds == null)
-                    return await context.Set<T>().ToListAsync(cancellationToken);
-                else
-                {
-                    return await context.Set<T>()
-                        .Where(del => del.Deleted == deleteds).ToListAsync(cancellationToken);
-                }
+                var query = context.Set<T>().AsQueryable();
+
+                if (deleteds != null)
+                    query = query.Where(del => del.Deleted == deleteds);
+
+                if (noTracking)
+                    query = query.AsNoTracking();
+
+                if (skip > 0)
+                    query = query.Skip(skip);
+
+                if (take > 0)
+                    query = query.Take(take);
+
+                return await query.ToListAsync(cancellationToken);
             }
             catch (Exception ex) { throw; }
         }
 
-        public virtual async Task<List<T>> GetAll(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken, bool? deleteds = null)
+        public virtual async Task<List<T>> GetAll(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken, bool noTracking = false, int skip = 0, int take = 0, bool? deleteds = null)
         {
             try
             {
-                if (deleteds == null)
-                    return await context.Set<T>()
-                        .Where(predicate).ToListAsync();
-                else
-                {
-                    return await context.Set<T>()
-                        .Where(del => del.Deleted == deleteds)
-                        .Where(predicate).ToListAsync();
-                }
+                var query = context.Set<T>().AsQueryable();
+                query = query.Where(predicate);
+
+                if (deleteds != null)
+                    query = query.Where(del => del.Deleted == deleteds);
+
+                if (noTracking)
+                    query = query.AsNoTracking();
+
+                if (skip > 0)
+                    query = query.Skip(skip);
+
+                if (take > 0)
+                    query = query.Take(take);
+
+                return await query.ToListAsync(cancellationToken);
             }
             catch (Exception ex)
             {
@@ -93,6 +109,7 @@ namespace Infrastructure.Data.UnitOfWork
         {
             try
             {
+                entidade.Guid = new Guid();
                 context.Entry(entidade).State = EntityState.Added;
                 await context.SaveChangesAsync(cancellationToken);
                 return entidade;

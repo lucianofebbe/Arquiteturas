@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using DTOs.Dtos.Pokemon;
+using DTOs.Dtos.Pokemon.Responses;
 using Infrastructure.Apis.ApiExternal;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Infrastructure.Apis.ApiExternal;

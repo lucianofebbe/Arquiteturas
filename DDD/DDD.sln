@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "Depe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

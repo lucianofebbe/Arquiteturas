@@ -1,9 +1,9 @@
 ﻿using Domain.Bases;
 using Interfaces.Infrastructure.Apis.ApiExternal;
 
-namespace Factory.RepositorieFactory
+namespace Factory.RepositoryFactory
 {
-    public interface IRepositorieFactory<T> where T : BaseDomain
+    public interface IRepositoryFactory<T> where T : BaseDomain
     {
         Task<IUnitOfWork<T>> CreateAsync();
     }

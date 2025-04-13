@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\dtos\\dtos\\pokemon\\pokemonresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|solutionrelative:dtos\\dtos\\pokemon\\pokemonresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\application\\services\\pokemonsservice\\pokemonsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|solutionrelative:application\\services\\pokemonsservice\\pokemonsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 271,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,32 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PokemonResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Dtos\\Pokemon\\PokemonResponseDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Dtos\\Pokemon\\PokemonResponseDto.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Dtos\\Pokemon\\PokemonResponseDto.cs",
-              "RelativeToolTip": "DTOs\\Dtos\\Pokemon\\PokemonResponseDto.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAYwB8AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T20:45:41.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PokemonsService.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\PokemonsService\\PokemonsService.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsService.cs",
-              "RelativeToolTip": "Application\\Services\\PokemonsService\\PokemonsService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T13:13:04.343Z",
-              "EditorCaption": ""
             }
           ]
         }
