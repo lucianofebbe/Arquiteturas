@@ -9,6 +9,7 @@ namespace Factory.MappersFactory.Profiles
     {
         public PokemonProfile()
         {
+            #region Pokemon
             CreateMap<PokemonRequestDto, Pokemon>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name));
 
@@ -17,8 +18,15 @@ namespace Factory.MappersFactory.Profiles
 
             CreateMap<Pokemon, PokemonResponseDto>()
                 .ForMember(dest => dest.id, opt => opt.Ignore());
+            #endregion
 
-            CreateMap<PokemonResponseDto, Pokemon>();
+            #region Pokemons
+            CreateMap<PokemonRequestDto, Pokemons>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name));
+
+            CreateMap<Pokemons, PokemonRequestDto>()
+                .ForMember(dest => dest.name, opt => opt.MapFrom(src => src.Name));
+            #endregion
         }
     }
 }

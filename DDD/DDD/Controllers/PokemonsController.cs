@@ -39,29 +39,12 @@ namespace DDD.Controllers
             }
         }
 
-        [HttpGet("listPokemons")]
-        public async Task<ActionResult> ListPokemons([FromQuery] ListPokemonsRequestDto request, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var result = await this.pokemonFacade.GetAllPokemonsAsync(request, cancellationToken);
-                if (result == null)
-                    return NotFound("Nenhum pokemon encontrado");
-
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro interno: {ex.Message}");
-            }
-        }
-
         [HttpGet("getPokemon")]
         public async Task<ActionResult> GetPokemon([FromQuery] PokemonRequestDto request, CancellationToken cancellationToken)
         {
             try
             {
-                var result = await this.pokemonFacade.GetPokemonAsync(request, cancellationToken);
+                var result = await this.pokemonFacade.GetPokemon(request, cancellationToken);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 

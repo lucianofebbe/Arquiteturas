@@ -17,7 +17,6 @@ namespace Facade.PokemonFacade
             this.pokemonsRepoService = pokemonsRepoService;
         }
 
-
         public async Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync(CancellationToken cancellationToken)
         {
             var result = new ListPokemonsResponseDto();
@@ -28,14 +27,14 @@ namespace Facade.PokemonFacade
 
                 #region GetAllPokemonsinApi
                 var paramApi = new ListPokemonsRequestDto();
-                var servicePokemon = await pokemonsApiService.GetPokemonsAsync(paramApi);
-                paramApi.limit = servicePokemon.Count;
+                var servicePokemons = await pokemonsApiService.GetPokemonsAsync(paramApi);
+                paramApi = new ListPokemonsRequestDto(limit: servicePokemons.Count);
                 pokemonsApi = await pokemonsApiService.GetPokemonsAsync(paramApi);
                 #endregion
 
                 #region GetAllPokemonsRepo
                 var paramRepo = new ListPokemonsRequestDto();
-                var repoPokemon = await pokemonsRepoService.GetPokemonsAsync(paramRepo, cancellationToken);
+                var repoPokemons = await pokemonsRepoService.GetPokemonsAsync(paramRepo, cancellationToken);
                 #endregion
 
                 var nomesApi = pokemonsApi.Results.Select(p => p.Name).ToHashSet();
@@ -49,12 +48,12 @@ namespace Facade.PokemonFacade
 
                 paraInserir.ForEach(item =>
                 {
-                    pokemonsRepoService.InsertPokemonAsync(new PokemonRequestDto() { name = item }, cancellationToken);
+                    pokemonsRepoService.InsertPokemonsAsync(new PokemonRequestDto(name: item), cancellationToken);
                 });
 
                 paraDesativar.ForEach(item =>
                 {
-                    pokemonsRepoService.DeletePokemonAsync(new PokemonRequestDto() { name = item }, cancellationToken);
+                    pokemonsRepoService.DeletePokemonsAsync(new PokemonRequestDto(name: item), cancellationToken);
                 });
 
                 result.Message = "DataBase Updated!";
@@ -67,29 +66,14 @@ namespace Facade.PokemonFacade
             }
         }
 
-        public async Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        public async Task<PokemonResponseDto> GetPokemon(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             var result = new PokemonResponseDto();
             try
             {
-                var paramRepo = new ListPokemonsRequestDto();
-                result = await pokemonsRepoService.GetPokemonAsync(request, cancellationToken);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                result.Message = ex.Message;
-                return result;
-            }
-        }
+                var servicePokemon = await pokemonsApiService.GetPokemonAsync(request);
+                var repoPokemon = await pokemonsRepoService.GetPokemonAsync(request, cancellationToken);
 
-        public async Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request, CancellationToken cancellationToken)
-        {
-            var result = new ListPokemonsResponseDto();
-            try
-            {
-                var paramRepo = new ListPokemonsRequestDto();
-                result = await pokemonsRepoService.GetPokemonsAsync(paramRepo, cancellationToken);
                 return result;
             }
             catch (Exception ex)

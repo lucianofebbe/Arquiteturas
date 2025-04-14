@@ -2,6 +2,6 @@
 {
     public record BaseRequest
     {
-        public Guid guid { get; set; }
+        public Guid? guid { get; set; }
     }
 }

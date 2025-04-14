@@ -15,7 +15,7 @@ namespace Infrastructure.Data.UnitOfWork
             this.context = context;
         }
 
-        public virtual async Task<bool> Delete(int id, CancellationToken cancellationToken)
+        public virtual async Task<bool> SoftDelete(int id, CancellationToken cancellationToken)
         {
             try
             {
@@ -24,7 +24,8 @@ namespace Infrastructure.Data.UnitOfWork
                 {
                     resultFind.Updated = DateTime.Now;
                     resultFind.Deleted = true;
-                    return Insert(resultFind, cancellationToken).Result.Id > 0;
+                    var inserted = await Insert(resultFind, cancellationToken);
+                    return inserted.Id > 0;
                 }
                 else
                     return false;

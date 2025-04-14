@@ -12,7 +12,7 @@ namespace Factory.ApiExternalFactory
         public string BuildUrl(int offset, int limit, string name)
             => $"https://pokeapi.co/api/v2/pokemon/{name}";
 
-        public Type TargetType => typeof(PokemonUrlBuilder);
+        public Type TargetType => typeof(PokemonResponseDto);
     }
 
     public class ListPkemonUrlBuilder : IUrlBuilder

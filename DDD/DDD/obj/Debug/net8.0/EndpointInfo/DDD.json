@@ -17,44 +17,6 @@
         }
       }
     },
-    "/PokemonsApi/listPokemons": {
-      "get": {
-        "tags": [
-          "Pokemons"
-        ],
-        "parameters": [
-          {
-            "name": "offset",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "guid",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/PokemonsApi/getPokemon": {
       "get": {
         "tags": [

@@ -1,49 +1,53 @@
 ﻿using Domain.Entities;
 using DTOs.Dtos.Pokemon.Requests;
 using DTOs.Dtos.Pokemon.Responses;
-using Factory.RepositoryFactory;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Factory.MappersFactory;
+using Interfaces.Infrastructure.Repositories;
 
 namespace Application.Services.PokemonsService
 {
     public class PokemonsRepoService : IPokemonsRepoService
     {
-        private IRepositoryFactory<Pokemon> facPokemonRepo;
+        private IPokemonRepository<Pokemon> pokemonRepo;
         private IMapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto> facPokemonMapper;
 
-        private IRepositoryFactory<Pokemons> facPokemonsRepo;
+        private IPokemonsRepository<Pokemons> pokemonsRepo;
         private IMapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto> facPokemonsMapper;
 
-        private IRepositoryFactory<PokemonColor> facPokemonColorRepo;
+        private IPokemonColorRepository<PokemonColor> pokemonColorRepo;
         private IMapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto> facPokemonColorMapper;
 
 
         public PokemonsRepoService(
-            IRepositoryFactory<Pokemon> facPokemonRepo,
+            IPokemonRepository<Pokemon> facPokemonRepo,
             IMapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto> facPokemonMapper,
-            IRepositoryFactory<Pokemons> facPokemonsRepo,
+            IPokemonsRepository<Pokemons> facPokemonsRepo,
             IMapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto> facPokemonsMapper,
-            IRepositoryFactory<PokemonColor> facPokemonColorRepo,
+            IPokemonColorRepository<PokemonColor> facPokemonColorRepo,
             IMapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto> facPokemonColorMapper)
         {
-            this.facPokemonRepo = facPokemonRepo;
+            this.pokemonRepo = facPokemonRepo;
             this.facPokemonMapper = facPokemonMapper;
-            this.facPokemonsRepo = facPokemonsRepo;
+            this.pokemonsRepo = facPokemonsRepo;
             this.facPokemonsMapper = facPokemonsMapper;
-            this.facPokemonColorRepo = facPokemonColorRepo;
+            this.pokemonColorRepo = facPokemonColorRepo;
             this.facPokemonColorMapper = facPokemonColorMapper;
         }
 
+        #region Pokemon Tab
         public async Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             var result = new PokemonResponseDto();
             try
             {
-                var facPokemon = await facPokemonRepo.CreateAsync();
-                var getRepoAsync = await facPokemon.Get(o => o.Name == request.name, cancellationToken);
+                var getRepoAsync = new Pokemon();
+                if (!string.IsNullOrEmpty(request.name))
+                    getRepoAsync = await pokemonRepo.Get(o => o.Name == request.name, cancellationToken);
+                else
+                    getRepoAsync = await pokemonRepo.Get(o => o.Guid == request.guid, cancellationToken);
 
-                if (getRepoAsync != null)
+                if (!string.IsNullOrEmpty(getRepoAsync.Name))
                 {
                     var facMapper = await facPokemonMapper.CreateAsync();
                     var mapper = await facMapper.DomainToResponse(getRepoAsync);
@@ -60,14 +64,74 @@ namespace Application.Services.PokemonsService
                 return result;
             }
         }
+        
+        public async Task<PokemonResponseDto> InsertPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        {
+            var result = new PokemonResponseDto();
+            try
+            {
+                var facMapper = await facPokemonMapper.CreateAsync();
+                var addPokemon = await facMapper.RequestToDomain(request);
+                var inserted = await pokemonRepo.Insert(addPokemon, cancellationToken);
 
+                result = await facMapper.DomainToResponse(inserted);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
+        }
+        
+        public async Task<PokemonResponseDto> UpdatePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        {
+            var result = new PokemonResponseDto();
+            try
+            {
+                var facMapper = await facPokemonMapper.CreateAsync();
+
+                var updated = await pokemonRepo.Update(await facMapper.RequestToDomain(request), cancellationToken);
+                result = await facMapper.DomainToResponse(updated);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
+        }
+        
+        public async Task<PokemonResponseDto> DeletePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        {
+            var result = new PokemonResponseDto();
+            try
+            {
+                var facMapper = await facPokemonMapper.CreateAsync();
+                var pokemonMapper = await facMapper.RequestToDomain(request);
+                pokemonMapper.Deleted = true;
+                var updated = await pokemonRepo.Update(pokemonMapper, cancellationToken);
+                result = await facMapper.DomainToResponse(updated);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
+        }
+        #endregion
+
+        #region Pokemons Tab
         public async Task<ListPokemonsResponseDto> GetPokemonsAsync(ListPokemonsRequestDto request, CancellationToken cancellationToken)
         {
             var result = new ListPokemonsResponseDto();
             try
             {
-                var facPokemons = await facPokemonsRepo.CreateAsync();
-                var getRepoAsync = await facPokemons.GetAll(cancellationToken, skip: request.offset, take: request.limit);
+                var getRepoAsync = await pokemonsRepo.GetAll(cancellationToken, noTracking: true, skip: request.offset, take: request.limit);
 
                 if (getRepoAsync.Count > 0)
                 {
@@ -85,17 +149,15 @@ namespace Application.Services.PokemonsService
             }
         }
 
-        public async Task<PokemonResponseDto> InsertPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        public async Task<ListPokemonsResponseDto> InsertPokemonsAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
-            var result = new PokemonResponseDto();
+            var result = new ListPokemonsResponseDto();
             try
             {
-                var facPokemon = await facPokemonRepo.CreateAsync();
-
-                var facMapper = await facPokemonMapper.CreateAsync();
+                var facMapper = await facPokemonsMapper.CreateAsync();
                 var addPokemon = await facMapper.RequestToDomain(request);
-                var inserted = await facPokemon.Insert(addPokemon, cancellationToken);
-                
+                var inserted = await pokemonsRepo.Insert(addPokemon, cancellationToken);
+
                 result = await facMapper.DomainToResponse(inserted);
 
                 return result;
@@ -107,15 +169,14 @@ namespace Application.Services.PokemonsService
             }
         }
 
-        public async Task<PokemonResponseDto> UpdatePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        public async Task<ListPokemonsResponseDto> UpdatePokemonsAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
-            var result = new PokemonResponseDto();
+            var result = new ListPokemonsResponseDto();
             try
             {
-                var facPokemon = await facPokemonRepo.CreateAsync();
-                var facMapper = await facPokemonMapper.CreateAsync();
+                var facMapper = await facPokemonsMapper.CreateAsync();
 
-                var updated = await facPokemon.Update(await facMapper.RequestToDomain(request), cancellationToken);
+                var updated = await pokemonsRepo.Update(await facMapper.RequestToDomain(request), cancellationToken);
                 result = await facMapper.DomainToResponse(updated);
 
                 return result;
@@ -127,16 +188,15 @@ namespace Application.Services.PokemonsService
             }
         }
 
-        public async Task<PokemonResponseDto> DeletePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
+        public async Task<ListPokemonsResponseDto> DeletePokemonsAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
-            var result = new PokemonResponseDto();
+            var result = new ListPokemonsResponseDto();
             try
             {
-                var facPokemon = await facPokemonRepo.CreateAsync();
-                var facMapper = await facPokemonMapper.CreateAsync();
+                var facMapper = await facPokemonsMapper.CreateAsync();
                 var pokemonRepo = await facMapper.RequestToDomain(request);
                 pokemonRepo.Deleted = true;
-                var updated = await facPokemon.Update(pokemonRepo, cancellationToken);
+                var updated = await pokemonsRepo.Update(pokemonRepo, cancellationToken);
                 result = await facMapper.DomainToResponse(updated);
 
                 return result;
@@ -147,5 +207,6 @@ namespace Application.Services.PokemonsService
                 return result;
             }
         }
+        #endregion
     }
 }
