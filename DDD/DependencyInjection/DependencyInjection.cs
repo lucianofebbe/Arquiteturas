@@ -27,10 +27,6 @@ namespace DependencyInjection
             services.AddSingleton<IUrlBuilder, ListPkemonUrlBuilder>();
             #endregion
 
-            #region ProfilesToMappersFactory
-            services.AddAutoMapper(typeof(PokemonProfile));
-            #endregion
-
             #region ToPokemonsService
             services.AddTransient<IApiExternalFactory<PokemonResponseDto>, ApiExternalFactory<PokemonResponseDto>>();
             services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>>();

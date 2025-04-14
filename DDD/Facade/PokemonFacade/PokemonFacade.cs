@@ -1,9 +1,7 @@
-﻿using Domain.Entities;
-using DTOs.Dtos.Pokemon.Requests;
+﻿using DTOs.Dtos.Pokemon.Requests;
 using DTOs.Dtos.Pokemon.Responses;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Facade.PokemonFacade;
-using System.ComponentModel;
 
 namespace Facade.PokemonFacade
 {
@@ -59,6 +57,7 @@ namespace Facade.PokemonFacade
                     pokemonsRepoService.DeletePokemonAsync(new PokemonRequestDto() { name = item }, cancellationToken);
                 });
 
+                result.Message = "DataBase Updated!";
                 return result;
             }
             catch (Exception ex)
