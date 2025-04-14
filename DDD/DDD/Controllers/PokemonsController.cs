@@ -1,7 +1,6 @@
 ﻿using DTOs.Dtos.Pokemon.Requests;
 using Interfaces.Facade.PokemonFacade;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading;
 
 namespace DDD.Controllers
 {
@@ -41,7 +40,7 @@ namespace DDD.Controllers
         }
 
         [HttpGet("listPokemons")]
-        public async Task<ActionResult> ListPokemons(ListPokemonsRequestDto request, CancellationToken cancellationToken)
+        public async Task<ActionResult> ListPokemons([FromQuery] ListPokemonsRequestDto request, CancellationToken cancellationToken)
         {
             try
             {
@@ -58,7 +57,7 @@ namespace DDD.Controllers
         }
 
         [HttpGet("getPokemon")]
-        public async Task<ActionResult> GetPokemon(PokemonRequestDto request, CancellationToken cancellationToken)
+        public async Task<ActionResult> GetPokemon([FromQuery] PokemonRequestDto request, CancellationToken cancellationToken)
         {
             try
             {

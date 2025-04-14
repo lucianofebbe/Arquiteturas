@@ -8,9 +8,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "DTOs.Dtos.Pokemon.Requests.PokemonRequestDto",
-        "IsRequired": true
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -24,9 +29,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "DTOs.Dtos.Pokemon.Requests.ListPokemonsRequestDto",
-        "IsRequired": true
+        "Name": "offset",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

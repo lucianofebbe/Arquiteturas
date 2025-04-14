@@ -110,7 +110,7 @@ namespace Infrastructure.Data.UnitOfWork
         {
             try
             {
-                entidade.Guid = new Guid();
+                entidade.Guid = Guid.NewGuid();
                 entidade.Created = DateTime.Now;
                 entidade.Updated = DateTime.Now;
                 context.Entry(entidade).State = EntityState.Added;

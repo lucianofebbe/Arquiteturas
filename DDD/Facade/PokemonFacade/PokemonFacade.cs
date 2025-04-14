@@ -72,6 +72,8 @@ namespace Facade.PokemonFacade
             var result = new PokemonResponseDto();
             try
             {
+                var paramRepo = new ListPokemonsRequestDto();
+                result = await pokemonsRepoService.GetPokemonAsync(request, cancellationToken);
                 return result;
             }
             catch (Exception ex)
@@ -86,6 +88,8 @@ namespace Facade.PokemonFacade
             var result = new ListPokemonsResponseDto();
             try
             {
+                var paramRepo = new ListPokemonsRequestDto();
+                result = await pokemonsRepoService.GetPokemonsAsync(paramRepo, cancellationToken);
                 return result;
             }
             catch (Exception ex)

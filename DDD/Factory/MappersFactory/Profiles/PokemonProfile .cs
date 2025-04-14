@@ -15,7 +15,9 @@ namespace Factory.MappersFactory.Profiles
             CreateMap<Pokemon, PokemonRequestDto>()
                 .ForMember(dest => dest.name, opt => opt.MapFrom(src => src.Name));
 
-            CreateMap<Pokemon, PokemonResponseDto>();
+            CreateMap<Pokemon, PokemonResponseDto>()
+                .ForMember(dest => dest.id, opt => opt.Ignore());
+
             CreateMap<PokemonResponseDto, Pokemon>();
         }
     }
