@@ -6,6 +6,7 @@ using DTOs.Dtos.Pokemon.Responses;
 using Facade.PokemonFacade;
 using Factory.ApiExternalFactory;
 using Factory.MappersFactory;
+using Factory.MappersFactory.Profiles;
 using Factory.RepositorieFactory;
 using Factory.RepositoryFactory;
 using Interfaces.Application.Services.PokemonsService;
@@ -21,15 +22,22 @@ namespace DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            #region PokemonsApiService
+            #region ToApiExternalFactory
+            services.AddSingleton<IUrlBuilder, PokemonUrlBuilder>();
+            services.AddSingleton<IUrlBuilder, ListPkemonUrlBuilder>();
+            #endregion
+
+            #region ProfilesToMappersFactory
+            services.AddAutoMapper(typeof(PokemonProfile));
+            #endregion
+
+            #region ToPokemonsService
             services.AddTransient<IApiExternalFactory<PokemonResponseDto>, ApiExternalFactory<PokemonResponseDto>>();
             services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>>();
 
             services.AddTransient<IApiExternalFactory<ListPokemonsResponseDto>, ApiExternalFactory<ListPokemonsResponseDto>>();
             services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>>();
-            #endregion
 
-            #region PokemonsRepoService
             services.AddTransient<IRepositoryFactory<Pokemon>, RepositoryFactory<Pokemon>>();
             services.AddTransient<IMapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>, MapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>>();
 

@@ -5,9 +5,9 @@ namespace Interfaces.Facade.PokemonFacade
 {
     public interface IPokemonFacade
     {
-        Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync();
-        Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request);
-        Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request);
+        Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync(CancellationToken cancellationToken);
+        Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken);
+        Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request, CancellationToken cancellationToken);
 
     }
 }

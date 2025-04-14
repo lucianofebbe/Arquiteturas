@@ -1,6 +1,7 @@
 ﻿using DTOs.Dtos.Pokemon.Requests;
 using Interfaces.Facade.PokemonFacade;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace DDD.Controllers
 {
@@ -23,11 +24,11 @@ namespace DDD.Controllers
         }
 
         [HttpGet("updateDataBase")]
-        public async Task<ActionResult> UpdateDataBase()
+        public async Task<ActionResult> UpdateDataBase(CancellationToken cancellationToken)
         {
             try
             {
-                var result = await this.pokemonFacade.UpdateDataBasePokemonAsync();
+                var result = await this.pokemonFacade.UpdateDataBasePokemonAsync(cancellationToken);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
@@ -40,11 +41,11 @@ namespace DDD.Controllers
         }
 
         [HttpGet("listPokemons")]
-        public async Task<ActionResult> ListPokemons(ListPokemonsRequestDto request)
+        public async Task<ActionResult> ListPokemons(ListPokemonsRequestDto request, CancellationToken cancellationToken)
         {
             try
             {
-                var result = await this.pokemonFacade.GetAllPokemonsAsync(request);
+                var result = await this.pokemonFacade.GetAllPokemonsAsync(request, cancellationToken);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 
@@ -57,11 +58,11 @@ namespace DDD.Controllers
         }
 
         [HttpGet("getPokemon")]
-        public async Task<ActionResult> GetPokemon(PokemonRequestDto request)
+        public async Task<ActionResult> GetPokemon(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             try
             {
-                var result = await this.pokemonFacade.GetPokemonAsync(request);
+                var result = await this.pokemonFacade.GetPokemonAsync(request, cancellationToken);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 

@@ -1,7 +1,4 @@
-﻿using Domain.Entities;
-using DTOs.Dtos.Pokemon;
-using DTOs.Dtos.Pokemon.Responses;
-using Infrastructure.Apis.ApiExternal;
+﻿using Infrastructure.Apis.ApiExternal;
 using Interfaces.Factory.ApiExternalFactory;
 using Interfaces.Infrastructure.Apis.ApiExternal;
 
@@ -9,6 +6,11 @@ namespace Factory.ApiExternalFactory
 {
     public class ApiExternalFactory<T> : IApiExternalFactory<T> where T : class
     {
+        private readonly Dictionary<Type, IUrlBuilder> urlStrategies;
+        public ApiExternalFactory(IEnumerable<IUrlBuilder> builders)
+        {
+            this.urlStrategies = builders.ToDictionary(b => b.TargetType, b => b);
+        }
         public async Task<IApiExternal<T>> CreateAsync(string url)
         {
             try
@@ -35,12 +37,10 @@ namespace Factory.ApiExternalFactory
         {
             try
             {
-                if (type == typeof(PokemonResponseDto))
-                    return $"https://pokeapi.co/api/v2/pokemon/{name}";
-                else if (type == typeof(ListPokemonsResponseDto))
-                    return $"https://pokeapi.co/api/v2/pokemon?offset={offset}limit={limit}";
-                else
-                    throw new NotSupportedException($"No API URL configured for type {type.Name}");
+                if (urlStrategies.TryGetValue(type, out var builder))
+                    return builder.BuildUrl(offset, limit, name);
+
+                throw new NotSupportedException($"No URL strategy configured for type {type.Name}");
             }
             catch (Exception ex) { throw; }
         }

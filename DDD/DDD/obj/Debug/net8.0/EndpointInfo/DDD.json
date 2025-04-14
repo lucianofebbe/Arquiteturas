@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/PokemonsApi/updateDataBase": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/PokemonsApi/listPokemons": {
       "get": {
         "tags": [

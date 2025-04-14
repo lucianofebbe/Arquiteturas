@@ -1,7 +1,9 @@
-﻿using DTOs.Dtos.Pokemon.Requests;
+﻿using Domain.Entities;
+using DTOs.Dtos.Pokemon.Requests;
 using DTOs.Dtos.Pokemon.Responses;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Facade.PokemonFacade;
+using System.ComponentModel;
 
 namespace Facade.PokemonFacade
 {
@@ -18,19 +20,80 @@ namespace Facade.PokemonFacade
         }
 
 
-        public Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync()
+        public async Task<ListPokemonsResponseDto> UpdateDataBasePokemonAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = new ListPokemonsResponseDto();
+            try
+            {
+                var pokemonsApi = new ListPokemonsResponseDto();
+                var pokemonsRepo = new List<ListPokemonsResponseDto>();
+
+                #region GetAllPokemonsinApi
+                var paramApi = new ListPokemonsRequestDto();
+                var servicePokemon = await pokemonsApiService.GetPokemonsAsync(paramApi);
+                paramApi.limit = servicePokemon.Count;
+                pokemonsApi = await pokemonsApiService.GetPokemonsAsync(paramApi);
+                #endregion
+
+                #region GetAllPokemonsRepo
+                var paramRepo = new ListPokemonsRequestDto();
+                var repoPokemon = await pokemonsRepoService.GetPokemonsAsync(paramRepo, cancellationToken);
+                #endregion
+
+                var nomesApi = pokemonsApi.Results.Select(p => p.Name).ToHashSet();
+                var nomesRepo = pokemonsRepo
+                    .SelectMany(repo => repo.Results)
+                    .Select(p => p.Name)
+                    .ToHashSet();
+
+                var paraInserir = nomesApi.Except(nomesRepo).ToList();
+                var paraDesativar = nomesRepo.Except(nomesApi).ToList();
+
+                paraInserir.ForEach(item =>
+                {
+                    pokemonsRepoService.InsertPokemonAsync(new PokemonRequestDto() { name = item }, cancellationToken);
+                });
+
+                paraDesativar.ForEach(item =>
+                {
+                    pokemonsRepoService.DeletePokemonAsync(new PokemonRequestDto() { name = item }, cancellationToken);
+                });
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
 
-        public Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request)
+        public async Task<PokemonResponseDto> GetPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = new PokemonResponseDto();
+            try
+            {
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
 
-        public Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request)
+        public async Task<ListPokemonsResponseDto> GetAllPokemonsAsync(ListPokemonsRequestDto request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = new ListPokemonsResponseDto();
+            try
+            {
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Domain.Entities;
+﻿using Domain.Entities;
 using DTOs.Dtos.Pokemon.Requests;
 using DTOs.Dtos.Pokemon.Responses;
 using Factory.RepositoryFactory;
@@ -72,14 +71,7 @@ namespace Application.Services.PokemonsService
 
                 if (getRepoAsync.Count > 0)
                 {
-                    var configMapper = new MapperConfiguration(config =>
-                    {
-                        config.CreateMap<Pokemons, ItemPokemonsResultDto>()
-                        .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                            .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url));
-                    });
-
-                    var facMapper = await facPokemonsMapper.CreateAsync(configMapper);
+                    var facMapper = await facPokemonsMapper.CreateAsync();
                     var mapper = await facMapper.DomainToResponse(getRepoAsync);
                     result.Results.AddRange(mapper.FirstOrDefault().Results);
                 }
@@ -99,9 +91,11 @@ namespace Application.Services.PokemonsService
             try
             {
                 var facPokemon = await facPokemonRepo.CreateAsync();
-                var facMapper = await facPokemonMapper.CreateAsync();
 
-                var inserted = await facPokemon.Insert(await facMapper.RequestToDomain(request), cancellationToken);
+                var facMapper = await facPokemonMapper.CreateAsync();
+                var addPokemon = await facMapper.RequestToDomain(request);
+                var inserted = await facPokemon.Insert(addPokemon, cancellationToken);
+                
                 result = await facMapper.DomainToResponse(inserted);
 
                 return result;
@@ -135,7 +129,23 @@ namespace Application.Services.PokemonsService
 
         public async Task<PokemonResponseDto> DeletePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = new PokemonResponseDto();
+            try
+            {
+                var facPokemon = await facPokemonRepo.CreateAsync();
+                var facMapper = await facPokemonMapper.CreateAsync();
+                var pokemonRepo = await facMapper.RequestToDomain(request);
+                pokemonRepo.Deleted = true;
+                var updated = await facPokemon.Update(pokemonRepo, cancellationToken);
+                result = await facMapper.DomainToResponse(updated);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
     }
 }

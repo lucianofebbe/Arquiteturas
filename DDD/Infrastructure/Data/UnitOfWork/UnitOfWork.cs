@@ -22,6 +22,7 @@ namespace Infrastructure.Data.UnitOfWork
                 var resultFind = await Get(a => a.Id == id, cancellationToken);
                 if (resultFind != null)
                 {
+                    resultFind.Updated = DateTime.Now;
                     resultFind.Deleted = true;
                     return Insert(resultFind, cancellationToken).Result.Id > 0;
                 }
@@ -110,6 +111,8 @@ namespace Infrastructure.Data.UnitOfWork
             try
             {
                 entidade.Guid = new Guid();
+                entidade.Created = DateTime.Now;
+                entidade.Updated = DateTime.Now;
                 context.Entry(entidade).State = EntityState.Added;
                 await context.SaveChangesAsync(cancellationToken);
                 return entidade;
@@ -124,6 +127,7 @@ namespace Infrastructure.Data.UnitOfWork
         {
             try
             {
+                entidade.Updated = DateTime.Now;
                 context.Entry(entidade).State = EntityState.Modified;
                 await context.SaveChangesAsync(cancellationToken);
                 return entidade;
