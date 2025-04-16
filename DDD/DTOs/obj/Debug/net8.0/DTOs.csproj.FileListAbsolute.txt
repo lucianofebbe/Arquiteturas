@@ -10,3 +10,4 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DTOs\obj\Debug\net8.0\DTOs.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DTOs\obj\Debug\net8.0\refint\DTOs.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DTOs\obj\Debug\net8.0\DTOs.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DTOs\obj\Debug\net8.0\ref\DTOs.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\DTOs\obj\Debug\net8.0\DTOs.csproj.AssemblyReference.cache

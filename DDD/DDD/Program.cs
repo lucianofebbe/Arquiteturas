@@ -1,5 +1,8 @@
 
 using DependencyInjection;
+using Domain.Validators;
+using DTOs.Validators;
+using FluentValidation;
 
 namespace DDD
 {
@@ -16,6 +19,11 @@ namespace DDD
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddInfrastructure(builder.Configuration);
+
+
+            builder.Services.AddControllers();
+            builder.Services.AddValidatorsFromAssemblyContaining<PokemonRequestDtoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<PokemonValidator>();
 
             var app = builder.Build();
 

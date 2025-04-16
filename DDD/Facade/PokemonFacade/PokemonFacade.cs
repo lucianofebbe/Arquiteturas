@@ -28,7 +28,7 @@ namespace Facade.PokemonFacade
                 #region GetAllPokemonsinApi
                 var paramApi = new ListPokemonsRequestDto();
                 var servicePokemons = await pokemonsApiService.GetPokemonsAsync(paramApi);
-                paramApi = new ListPokemonsRequestDto(limit: servicePokemons.Count);
+                paramApi.limit = servicePokemons.Count;
                 pokemonsApi = await pokemonsApiService.GetPokemonsAsync(paramApi);
                 #endregion
 
@@ -48,12 +48,14 @@ namespace Facade.PokemonFacade
 
                 paraInserir.ForEach(item =>
                 {
-                    pokemonsRepoService.InsertPokemonsAsync(new PokemonRequestDto(name: item), cancellationToken);
+                    var pokemonRequestDto = new PokemonRequestDto() { Name = item };
+                    pokemonsRepoService.InsertPokemonsAsync(pokemonRequestDto, cancellationToken);
                 });
 
                 paraDesativar.ForEach(item =>
                 {
-                    pokemonsRepoService.DeletePokemonsAsync(new PokemonRequestDto(name: item), cancellationToken);
+                    var pokemonRequestDto = new PokemonRequestDto() { Name = item };
+                    pokemonsRepoService.DeletePokemonsAsync(pokemonRequestDto, cancellationToken);
                 });
 
                 result.Message = "DataBase Updated!";

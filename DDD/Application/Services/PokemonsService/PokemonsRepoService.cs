@@ -42,8 +42,8 @@ namespace Application.Services.PokemonsService
             try
             {
                 var getRepoAsync = new Pokemon();
-                if (!string.IsNullOrEmpty(request.name))
-                    getRepoAsync = await pokemonRepo.Get(o => o.Name == request.name, cancellationToken);
+                if (!string.IsNullOrEmpty(request.Name))
+                    getRepoAsync = await pokemonRepo.Get(o => o.Name == request.Name, cancellationToken);
                 else
                     getRepoAsync = await pokemonRepo.Get(o => o.Guid == request.guid, cancellationToken);
 

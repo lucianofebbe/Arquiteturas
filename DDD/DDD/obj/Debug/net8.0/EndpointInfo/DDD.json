@@ -24,7 +24,7 @@
         ],
         "parameters": [
           {
-            "name": "name",
+            "name": "Name",
             "in": "query",
             "schema": {
               "type": "string"

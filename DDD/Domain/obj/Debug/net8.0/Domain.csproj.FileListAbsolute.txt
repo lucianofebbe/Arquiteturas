@@ -10,3 +10,4 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Domain\obj\Debug\net8.0\Domain
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache

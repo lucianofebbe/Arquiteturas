@@ -20,3 +20,5 @@ C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Debug\net8.0\Facto
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Debug\net8.0\refint\Factory.dll
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Debug\net8.0\Factory.pdb
 C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Debug\net8.0\ref\Factory.dll
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\bin\Debug\net8.0\Factory.runtimeconfig.json
+C:\Users\lucia\Documents\Empresa\Arquiteturas\DDD\Factory\obj\Debug\net8.0\Factory.genruntimeconfig.cache

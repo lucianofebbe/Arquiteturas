@@ -1,6 +1,7 @@
 ﻿using DTOs.Dtos.Pokemon.Requests;
 using Interfaces.Facade.PokemonFacade;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DDD.Controllers
 {
@@ -35,7 +36,7 @@ namespace DDD.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Erro interno: {ex.Message}");
+                return StatusCode(500, $"Erro interno no servidor.");
             }
         }
 
@@ -52,7 +53,7 @@ namespace DDD.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Erro interno: {ex.Message}");
+                return StatusCode(500, $"Erro interno no servidor.");
             }
         }
     }

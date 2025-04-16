@@ -32,7 +32,7 @@ namespace Application.Services.PokemonsService
             var result = new PokemonResponseDto();
             try
             {
-                var facPokemons = await this.facPokemonApi.CreatePokemonsAsync(name: request.name);
+                var facPokemons = await this.facPokemonApi.CreatePokemonsAsync(name: request.Name);
                 var getJsonAsync = await facPokemons.GetJsonAsync();
 
                 if (!string.IsNullOrEmpty(getJsonAsync))
