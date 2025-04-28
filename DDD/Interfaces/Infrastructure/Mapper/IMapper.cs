@@ -22,6 +22,13 @@ namespace Interfaces.Infrastructure.Mapper
         Task<List<Response>> DomainToResponse(List<Domain> item);
         #endregion
 
+        #region Request and Response
+        Task<Request> ResponseToRequest(Response item);
+        Task<List<Request>> ResponseToRequest(List<Response> item);
+        Task<Response> RequestToResponse(Request item);
+        Task<List<Response>> RequestToResponse(List<Request> item);
+        #endregion
+
         #region JsonSerializer
         Task<string> DomainToJson(Domain item);
         Task<string> DomainToJson(List<Domain> item);

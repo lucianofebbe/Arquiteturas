@@ -20,7 +20,6 @@ namespace DDD
             builder.Services.AddSwaggerGen();
             builder.Services.AddInfrastructure(builder.Configuration);
 
-
             builder.Services.AddControllers();
             builder.Services.AddValidatorsFromAssemblyContaining<PokemonRequestDtoValidator>();
             builder.Services.AddValidatorsFromAssemblyContaining<PokemonValidator>();

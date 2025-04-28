@@ -21,43 +21,66 @@ namespace DependencyInjection
 {
     public static class DependencyInjection
     {
+        private static IConfiguration _configuration;
+        private static IServiceCollection _services;
+
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<Context>(options =>
-            options.UseSqlServer("DefaultConnection"));
+            _services = services;
+            _configuration = configuration;
 
-            #region ToApiExternalFactory
-            services.AddSingleton<IUrlBuilder, PokemonUrlBuilder>();
-            services.AddSingleton<IUrlBuilder, ListPkemonUrlBuilder>();
-            #endregion
-
-            #region ToPokemonsService
-            services.AddTransient<IApiExternalFactory<PokemonResponseDto>, ApiExternalFactory<PokemonResponseDto>>();
-            services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>>();
-
-            services.AddTransient<IApiExternalFactory<ListPokemonsResponseDto>, ApiExternalFactory<ListPokemonsResponseDto>>();
-            services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>>();
-
-            services.AddTransient<IPokemonRepository<Pokemon>, PokemonRepository<Pokemon>>();
-            services.AddTransient<IMapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>, MapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>>();
-
-            services.AddTransient<IPokemonsRepository<Pokemons>, PokemonsRepository<Pokemons>>();
-            services.AddTransient<IMapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto>, MapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto>>();
-
-            services.AddTransient<IPokemonColorRepository<PokemonColor>, PokemonColorRepository<PokemonColor>>();
-            services.AddTransient<IMapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto>, MapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto>>();
-            #endregion
-
-            #region Services
-            services.AddTransient<IPokemonsApiService, PokemonsApiService>();
-            services.AddTransient<IPokemonsRepoService, PokemonsRepoService>();
-            #endregion
-
-            #region Facade
-            services.AddTransient<IPokemonFacade, PokemonFacade>();
-            #endregion
+            AddRepository();
+            AddApiExternal();
+            AddDependenciesPokemonsServices();
+            AddPokemonsServices();
+            AddFacade();
 
             return services;
+        }
+
+        private static IServiceCollection AddRepository()
+        {
+            _services.AddDbContext<Context>(options =>
+            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+
+            _services.AddScoped(typeof(IPokemonRepository<>), typeof(PokemonRepository<>));
+            _services.AddScoped(typeof(IPokemonsRepository<>), typeof(PokemonsRepository<>));
+            _services.AddScoped(typeof(IPokemonColorRepository<>), typeof(PokemonColorRepository<>));
+            return _services;
+        }
+
+        private static IServiceCollection AddApiExternal()
+        {
+            _services.AddSingleton<PokemonUrlBuilder>();
+            _services.AddSingleton<ListPokemonUrlBuilder>();
+            return _services;
+        }
+
+        private static IServiceCollection AddDependenciesPokemonsServices()
+        {
+            _services.AddTransient<IUrlBuilder, PokemonUrlBuilder>();
+            _services.AddTransient<IUrlBuilder, ListPokemonUrlBuilder>();
+            _services.AddTransient<IApiExternalFactory<PokemonResponseDto>, ApiExternalFactory<PokemonResponseDto>>();
+            _services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, PokemonResponseDto>>();
+            _services.AddTransient<IApiExternalFactory<ListPokemonsResponseDto>, ApiExternalFactory<ListPokemonsResponseDto>>();
+            _services.AddTransient<IMapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>, MapperFactory<BaseDomain, PokemonRequestDto, ListPokemonsResponseDto>>();
+            _services.AddTransient<IMapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>, MapperFactory<Pokemon, PokemonRequestDto, PokemonResponseDto>>();
+            _services.AddTransient<IMapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto>, MapperFactory<Pokemons, PokemonRequestDto, ListPokemonsResponseDto>>();
+            _services.AddTransient<IMapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto>, MapperFactory<PokemonColor, PokemonRequestDto, PokemonResponseDto>>();
+            return _services;
+        }
+
+        private static IServiceCollection AddPokemonsServices()
+        {
+            _services.AddTransient<IPokemonsApiService, PokemonsApiService>();
+            _services.AddTransient<IPokemonsRepoService, PokemonsRepoService>();
+            return _services;
+        }
+
+        private static IServiceCollection AddFacade()
+        {
+            _services.AddTransient<IPokemonFacade, PokemonFacade>();
+            return _services;
         }
     }
 }

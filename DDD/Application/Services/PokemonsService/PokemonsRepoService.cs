@@ -4,6 +4,7 @@ using DTOs.Dtos.Pokemon.Responses;
 using Interfaces.Application.Services.PokemonsService;
 using Interfaces.Factory.MappersFactory;
 using Interfaces.Infrastructure.Repositories;
+using System.Linq.Expressions;
 
 namespace Application.Services.PokemonsService
 {
@@ -42,19 +43,16 @@ namespace Application.Services.PokemonsService
             try
             {
                 var getRepoAsync = new Pokemon();
-                if (!string.IsNullOrEmpty(request.Name))
+                if (!string.IsNullOrEmpty(request.Name) && request.guid != null)
+                    getRepoAsync = await pokemonRepo.Get(o => o.Name == request.Name && o.Guid == request.guid, cancellationToken);
+                else if (!string.IsNullOrEmpty(request.Name) && request.guid == null)
                     getRepoAsync = await pokemonRepo.Get(o => o.Name == request.Name, cancellationToken);
-                else
+                else if (string.IsNullOrEmpty(request.Name) && request.guid != null)
                     getRepoAsync = await pokemonRepo.Get(o => o.Guid == request.guid, cancellationToken);
 
-                if (!string.IsNullOrEmpty(getRepoAsync.Name))
-                {
-                    var facMapper = await facPokemonMapper.CreateAsync();
-                    var mapper = await facMapper.DomainToResponse(getRepoAsync);
-                    result = mapper;
-                }
-                else
-                    result.Message = "Pokemon not found";
+                var facMapper = await facPokemonMapper.CreateAsync();
+                var mapper = await facMapper.DomainToResponse(getRepoAsync);
+                result = mapper;
 
                 return result;
             }
@@ -64,7 +62,7 @@ namespace Application.Services.PokemonsService
                 return result;
             }
         }
-        
+
         public async Task<PokemonResponseDto> InsertPokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             var result = new PokemonResponseDto();
@@ -84,7 +82,7 @@ namespace Application.Services.PokemonsService
                 return result;
             }
         }
-        
+
         public async Task<PokemonResponseDto> UpdatePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             var result = new PokemonResponseDto();
@@ -103,7 +101,7 @@ namespace Application.Services.PokemonsService
                 return result;
             }
         }
-        
+
         public async Task<PokemonResponseDto> DeletePokemonAsync(PokemonRequestDto request, CancellationToken cancellationToken)
         {
             var result = new PokemonResponseDto();

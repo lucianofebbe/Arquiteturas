@@ -6,6 +6,9 @@ namespace Interfaces.Infrastructure.Apis.ApiExternal
     {
         Task<List<T>> GetListAsync();
         Task<T> GetAsync();
+        Task<T> PostAsync();
+        Task<T> PutAsync();
+        Task<T> DeleteAsync();
         Task<string> GetJsonAsync();
     }
 }

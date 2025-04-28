@@ -1,7 +1,6 @@
 ﻿using DTOs.Dtos.Pokemon.Requests;
 using Interfaces.Facade.PokemonFacade;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DDD.Controllers
 {
@@ -45,7 +44,7 @@ namespace DDD.Controllers
         {
             try
             {
-                var result = await this.pokemonFacade.GetPokemon(request, cancellationToken);
+                var result = await this.pokemonFacade.GetPokemonAsync(request, cancellationToken);
                 if (result == null)
                     return NotFound("Nenhum pokemon encontrado");
 

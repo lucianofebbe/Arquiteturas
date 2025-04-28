@@ -34,6 +34,39 @@ namespace Infrastructure.Apis.ApiExternal
             catch (Exception ex) { throw; }
         }
 
+        public async Task<T> PostAsync()
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync(string.Empty, null);
+                response.EnsureSuccessStatusCode();
+                return JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        public async Task<T> PutAsync()
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync(string.Empty, null);
+                response.EnsureSuccessStatusCode();
+                return JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        public async Task<T> DeleteAsync()
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync(string.Empty, null);
+                response.EnsureSuccessStatusCode();
+                return JsonSerializer.Deserialize<T>(await response.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex) { throw; }
+        }
+
         public virtual async Task<string> GetJsonAsync()
         {
             try

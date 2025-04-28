@@ -7,8 +7,8 @@ namespace DTOs.Validators
     {
         public PokemonRequestDtoValidator()
         {
-            RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("Digite o nome do Pokemon");
+            //RuleFor(x => x.Name)
+            //    .NotEmpty().WithMessage("Digite o nome do Pokemon");
         }
     }
 }

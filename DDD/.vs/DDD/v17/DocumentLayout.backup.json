@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}|Facade\\Facade.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\facade\\pokemonfacade\\pokemonfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFE66F0B-3F12-4A1C-9B15-0C0B53562426}|Facade\\Facade.csproj|solutionrelative:facade\\pokemonfacade\\pokemonfacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B50E0706-0AA8-4D17-8E99-0359DCAD7C83}|DDD\\DDD.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\ddd\\controllers\\pokemonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B50E0706-0AA8-4D17-8E99-0359DCAD7C83}|DDD\\DDD.csproj|solutionrelative:ddd\\controllers\\pokemonscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\dtos\\dtos\\pokemon\\requests\\pokemonrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|solutionrelative:dtos\\dtos\\pokemon\\requests\\pokemonrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B50E0706-0AA8-4D17-8E99-0359DCAD7C83}|DDD\\DDD.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\ddd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B50E0706-0AA8-4D17-8E99-0359DCAD7C83}|DDD\\DDD.csproj|solutionrelative:ddd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\dtos\\validators\\pokemonrequestdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A53A3A74-32C9-4A13-BC9E-90E1F1F0E917}|DTOs\\DTOs.csproj|solutionrelative:dtos\\validators\\pokemonrequestdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|c:\\users\\lucia\\documents\\empresa\\arquiteturas\\ddd\\application\\services\\pokemonsservice\\pokemonsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9CF2FC8-34FE-4F36-9864-16B9F001A984}|Application\\Application.csproj|solutionrelative:application\\services\\pokemonsservice\\pokemonsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 271,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,54 +46,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DDD\\Program.cs",
-              "RelativeDocumentMoniker": "DDD\\Program.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DDD\\Program.cs",
-              "RelativeToolTip": "DDD\\Program.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAywBkAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:36:45.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PokemonRequestDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Validators\\PokemonRequestDtoValidator.cs",
-              "RelativeDocumentMoniker": "DTOs\\Validators\\PokemonRequestDtoValidator.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Validators\\PokemonRequestDtoValidator.cs",
-              "RelativeToolTip": "DTOs\\Validators\\PokemonRequestDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:26:03.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PokemonRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Dtos\\Pokemon\\Requests\\PokemonRequestDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\Dtos\\Pokemon\\Requests\\PokemonRequestDto.cs",
-              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DTOs\\Dtos\\Pokemon\\Requests\\PokemonRequestDto.cs",
-              "RelativeToolTip": "DTOs\\Dtos\\Pokemon\\Requests\\PokemonRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:25:43.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "PokemonsController.cs",
               "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DDD\\Controllers\\PokemonsController.cs",
               "RelativeDocumentMoniker": "DDD\\Controllers\\PokemonsController.cs",
               "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\DDD\\Controllers\\PokemonsController.cs",
               "RelativeToolTip": "DDD\\Controllers\\PokemonsController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAIwDUAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAMwC4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T03:13:20.41Z",
+              "WhenOpened": "2025-04-28T16:49:18.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PokemonFacade.cs",
+              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Facade\\PokemonFacade\\PokemonFacade.cs",
+              "RelativeDocumentMoniker": "Facade\\PokemonFacade\\PokemonFacade.cs",
+              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Facade\\PokemonFacade\\PokemonFacade.cs",
+              "RelativeToolTip": "Facade\\PokemonFacade\\PokemonFacade.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAuwHQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T16:50:06.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PokemonsApiService.cs",
+              "DocumentMoniker": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsApiService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\PokemonsService\\PokemonsApiService.cs",
+              "ToolTip": "C:\\Users\\lucia\\Documents\\Empresa\\Arquiteturas\\DDD\\Application\\Services\\PokemonsService\\PokemonsApiService.cs",
+              "RelativeToolTip": "Application\\Services\\PokemonsService\\PokemonsApiService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T16:08:49.432Z",
               "EditorCaption": ""
             }
           ]

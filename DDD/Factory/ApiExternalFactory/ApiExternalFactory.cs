@@ -11,6 +11,7 @@ namespace Factory.ApiExternalFactory
         {
             this.urlStrategies = builders.ToDictionary(b => b.TargetType, b => b);
         }
+        
         public async Task<IApiExternal<T>> CreateAsync(string url)
         {
             try

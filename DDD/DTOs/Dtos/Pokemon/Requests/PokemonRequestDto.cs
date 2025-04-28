@@ -4,6 +4,6 @@ namespace DTOs.Dtos.Pokemon.Requests
 {
     public record PokemonRequestDto : BaseRequest
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

@@ -274,6 +274,54 @@ namespace Interfaces.Infrastructure.Mapper
             }
         }
 
+        public virtual async Task<Request> ResponseToRequest(Response item)
+        {
+            try
+            {
+                return await Task.FromResult(mapper.Map<Request>(item));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public virtual async Task<List<Request>> ResponseToRequest(List<Response> item)
+        {
+            try
+            {
+                return await Task.FromResult(mapper.Map<List<Request>>(item));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public virtual async Task<Response> RequestToResponse(Request item)
+        {
+            try
+            {
+                return await Task.FromResult(mapper.Map<Response>(item));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public virtual async Task<List<Response>> RequestToResponse(List<Request> item)
+        {
+            try
+            {
+                return await Task.FromResult(mapper.Map<List<Response>>(item));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private IMapper CreateMapper()
         {
             try
